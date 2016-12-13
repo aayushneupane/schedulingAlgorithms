@@ -70,7 +70,7 @@ public class Tester
                 out.println("\n_________________________\n");
                 out.println("\nFCFS processor #" + i);
   
-                out.printf(ShortestJobFirst.processor(SimulatedProcess.GenMultiple(MAX_SJF), WANTED_TIME));
+                out.printf(FirstComeFirstServe.processor(SimulatedProcess.GenMultiple(MAX_SJF), WANTED_TIME));
             }
         }
     }
@@ -100,7 +100,7 @@ public class Tester
                 out.println("\n_________________________\n");
                 out.println("\nSRT processor #" + i);
   
-                out.printf(ShortestJobFirst.processor(SimulatedProcess.GenMultiple(MAX_SJF), WANTED_TIME));
+                out.printf(ShortestRemainingTime.processor(SimulatedProcess.GenMultiple(MAX_SJF), WANTED_TIME));
             }
         }
     }
@@ -115,7 +115,7 @@ public class Tester
                 out.println("\n_________________________\n");
                 out.println("\nRR processor #" + i);
   
-                out.printf(ShortestJobFirst.processor(SimulatedProcess.GenMultiple(MAX_SJF), WANTED_TIME));
+                out.printf(RoundRobin.processor(SimulatedProcess.GenMultiple(MAX_SJF), WANTED_TIME));
             }
         }
     }
@@ -130,7 +130,7 @@ public class Tester
                 out.println("\n_________________________\n");
                 out.println("\nHPF_NPNA processor #" + i);
   
-                out.printf(ShortestJobFirst.processor(SimulatedProcess.GenMultiple(MAX_SJF), WANTED_TIME));
+                out.printf(HigestPriorityFirst_NonPre.processor(SimulatedProcess.GenMultiple(MAX_SJF), WANTED_TIME));
             }
         }
     }
@@ -145,11 +145,11 @@ public class Tester
                 out.println("\n_________________________\n");
                 out.println("\nNPF_NPA processor #" + i);
   
-                out.printf(ShortestJobFirst.processor(SimulatedProcess.GenMultiple(MAX_SJF), WANTED_TIME));
+                out.printf(HigestPriorityFirst.processor(SimulatedProcess.GenMultiple(MAX_SJF), WANTED_TIME));
             }
         }
     }
-    
+ /**  
     private static void testHPF_PNA() throws FileNotFoundException
     {
         try(PrintWriter out = new PrintWriter("HPF_PNA.txt"))
@@ -164,7 +164,7 @@ public class Tester
             }
         }
     }
-    
+ 
     private static void testHPF_PA() throws FileNotFoundException
     {
         try(PrintWriter out = new PrintWriter("HPF_PA.txt"))
@@ -179,5 +179,5 @@ public class Tester
             }
         }
     }
-
+*/
 }
