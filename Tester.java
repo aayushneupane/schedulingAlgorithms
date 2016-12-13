@@ -18,7 +18,7 @@ public class Tester
     public static void main(String[] args) throws FileNotFoundException
     {
         System.out.println("Choose the algorithm you want to use: ");
-        System.out.println("FCFS, SJF, SRT, RR, HPR-NPA, HPF-PA");
+        System.out.println("FCFS, SJF, SRT, RR, HPF-NPA");
     	Scanner in = new Scanner(System.in);
     	
     	String alg = in.nextLine();
@@ -39,9 +39,6 @@ public class Tester
     		break;
     	case "HPF-NPA":
     		testHPF_NPA();
-    		break;
-    	case "HPF-PA":
-    		testHPF_PA();
     		break;
     	default: 
     		System.out.println("Choose an algorithm");
@@ -120,21 +117,6 @@ public class Tester
         }
     }
     
-    private static void testHPF_NPNA() throws FileNotFoundException
-    {
-        try(PrintWriter out = new PrintWriter("HPF_NPNA_OUT.txt"))
-        {
-        	out.println("HPF_NPNA");
-            for(int i = 1; i <= MAX_ITERATION; i++)
-            {
-                out.println("\n_________________________\n");
-                out.println("\nHPF_NPNA processor #" + i);
-  
-                out.printf(HigestPriorityFirst_NonPre.processor(SimulatedProcess.GenMultiple(MAX_SJF), WANTED_TIME));
-            }
-        }
-    }
-    
     private static void testHPF_NPA() throws FileNotFoundException
     {
         try(PrintWriter out = new PrintWriter("HPF_NPA.txt"))
@@ -145,11 +127,11 @@ public class Tester
                 out.println("\n_________________________\n");
                 out.println("\nNPF_NPA processor #" + i);
   
-                out.printf(HigestPriorityFirst.processor(SimulatedProcess.GenMultiple(MAX_SJF), WANTED_TIME));
+                out.printf(HighestPriorityFirst.processor(SimulatedProcess.GenMultiple(MAX_SJF), WANTED_TIME, false));
             }
         }
     }
- /**  
+ /**  not implemented
     private static void testHPF_PNA() throws FileNotFoundException
     {
         try(PrintWriter out = new PrintWriter("HPF_PNA.txt"))
@@ -176,6 +158,20 @@ public class Tester
                 out.println("\nHPF_PA processor #" + i);
   
                 out.printf(ShortestJobFirst.processor(SimulatedProcess.GenMultiple(MAX_SJF), WANTED_TIME));
+            }
+        }
+    }
+      private static void testHPF_NPNA() throws FileNotFoundException
+    {
+        try(PrintWriter out = new PrintWriter("HPF_NPNA_OUT.txt"))
+        {
+        	out.println("HPF_NPNA");
+            for(int i = 1; i <= MAX_ITERATION; i++)
+            {
+                out.println("\n_________________________\n");
+                out.println("\nHPF_NPNA processor #" + i);
+  
+                out.printf(HighestPriorityFirst_NonPre.processor(SimulatedProcess.GenMultiple(MAX_SJF), WANTED_TIME, false));
             }
         }
     }
